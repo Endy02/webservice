@@ -15,7 +15,7 @@ Web API to store projects that a company made. The API was made with  [Django](h
 ## :palm_tree: Features
 
 | Technology | Description |
-| --- | --- | ---| --- |
+| --- | --- |
 | Django | Python framework for web applications |
 | Django Rest Framework | Django package that allow django to turn his models into restfull API's endpoints |
 
