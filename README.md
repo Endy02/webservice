@@ -80,7 +80,7 @@ The server will run after all this steps, you will that you can access it by the
 
 http://localhost:8000
 or
-http://127.0.0.0:8000
+http://127.0.0.1:8000
 
 ---
 
