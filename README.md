@@ -104,6 +104,17 @@ http://127.0.0.1:8000
 
 ---
 
+## :link: Container link
+| Description  | Method | Liens |
+| --- | --- | --- |
+| Project list | GET | <http://localhost> |
+| Single Project by Slug | GET | <http://localhost:8081> |
+| Create Project | POST | <http://localhost:8081> |
+| Update Project | PUT | <http://localhost:8081> |
+| Delete Project | DELETE | <http://localhost:8081> |
+
+---
+
 ## :bookmark_tabs: Usage
 
 Open a new terminal and go in the project directory to run the script that use the api started earlier :
@@ -122,5 +133,4 @@ This script that test the API endpoints will show informations in the terminal.
 ## :pencil: License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 
