@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'django_filters',
+    'drf_spectacular',
 
     # Project apps
     'projects.apps.ProjectsConfig',
@@ -110,7 +111,16 @@ else:
         },
 
     }
-
+    # Rest Framework Config
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Web Service API',
+    'DESCRIPTION': 'This is the Web service api documentation',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
 FIXTURE_DIRS = [
     BASE_DIR / 'fixtures',
 ]

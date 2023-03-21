@@ -1,0 +1,431 @@
+openapi: 3.0.3
+info:
+  title: Web Service API
+  version: 1.0.0
+  description: This is the Web service api documentation
+paths:
+  /api/projects/:
+    get:
+      operationId: api_projects_list
+      description: |-
+        Get Project list endpoint
+        Role: Allow Any
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/{slug}:
+    get:
+      operationId: api_projects_retrieve
+      description: |-
+        RETRIEVE a project endpoint
+        Role: Allow Any
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/{slug}/delete:
+    delete:
+      operationId: api_projects_delete_destroy
+      description: |-
+        DELETE Project endpoint
+        Role: Is Admin
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/projects/{slug}/update:
+    put:
+      operationId: api_projects_update_update
+      description: |-
+        UPDATE Project endpoint
+        Role: Is Admin user
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+    patch:
+      operationId: api_projects_update_partial_update
+      description: |-
+        UPDATE Project endpoint
+        Role: Is Admin user
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProject'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/create/:
+    post:
+      operationId: api_projects_create_create
+      description: |-
+        CREATE new project endpoint
+        Role: Is Admin user
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Project'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+  /api/projects/project-images/{uuid}:
+    get:
+      operationId: api_projects_project_images_retrieve
+      description: |-
+        RETRIEVE a project image endpoint
+        Role: Allow Any User
+      parameters:
+      - in: path
+        name: uuid
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectImage'
+          description: ''
+  /api/projects/project-images/{uuid}/delete:
+    delete:
+      operationId: api_projects_project_images_delete_destroy
+      description: |-
+        DELETE Project image endpoint
+        Role: Is Admin User
+      parameters:
+      - in: path
+        name: uuid
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api/projects/project-images/{uuid}/update:
+    put:
+      operationId: api_projects_project_images_update_update
+      description: |-
+        UPDATE Project image endpoint
+        Role: Is Admin User
+      parameters:
+      - in: path
+        name: uuid
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProjectImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProjectImage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectImage'
+          description: ''
+    patch:
+      operationId: api_projects_project_images_update_partial_update
+      description: |-
+        UPDATE Project image endpoint
+        Role: Is Admin User
+      parameters:
+      - in: path
+        name: uuid
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProjectImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProjectImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProjectImage'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectImage'
+          description: ''
+  /api/projects/project-images/create/:
+    post:
+      operationId: api_projects_project_images_create_create
+      description: |-
+        CREATE new project image endpoint
+        Role: Is Admin User
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectImage'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProjectImage'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProjectImage'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectImage'
+          description: ''
+components:
+  schemas:
+    PatchedProject:
+      type: object
+      description: Project serializer class
+      properties:
+        title:
+          type: string
+          maxLength: 150
+        description:
+          type: string
+          nullable: true
+        short_desc:
+          type: string
+          nullable: true
+          maxLength: 255
+        link:
+          type: string
+          nullable: true
+        thumbnail:
+          type: string
+          format: uri
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectImage'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedProjectImage:
+      type: object
+      description: Project Image serializer class
+      properties:
+        media:
+          type: string
+          format: uri
+        project:
+          type: integer
+    Project:
+      type: object
+      description: Project serializer class
+      properties:
+        title:
+          type: string
+          maxLength: 150
+        description:
+          type: string
+          nullable: true
+        short_desc:
+          type: string
+          nullable: true
+          maxLength: 255
+        link:
+          type: string
+          nullable: true
+        thumbnail:
+          type: string
+          format: uri
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectImage'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - title
+    ProjectImage:
+      type: object
+      description: Project Image serializer class
+      properties:
+        media:
+          type: string
+          format: uri
+        project:
+          type: integer
+      required:
+      - media
+      - project
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
