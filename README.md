@@ -47,15 +47,35 @@ cd webservice
 ```
 
 ```bash
-py -m pip install --user virtualenv
+py -m venv venv
 ```
 
 > if the 'py' doesn't work, try this :
 >
 > ```bash
-> python3 -m pip install --user virtualenv
+> python3 -m venv venv
 > ```
 > This will create a new virtual environment in the root directory
+
+---
+
+### ! After the previous step you have to activate your virutal environment before continuing
+
+unix/osx
+
+```bash
+source venv/bin/activate
+```
+
+Windows
+```bash
+source venv/Scripts/activate
+```
+---
+
+> If you don't activate the virtual environment, all the packages will be installed on your computer and not in the virtual environment
+
+
 
 <b>Step 5 : Install all package that the project need</b>
 
