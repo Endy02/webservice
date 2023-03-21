@@ -107,11 +107,11 @@ http://127.0.0.1:8000
 ## :link: Container link
 | Description  | Method | Liens |
 | --- | --- | --- |
-| Project list | GET | <http://localhost> |
-| Single Project by Slug | GET | <http://localhost:8081> |
-| Create Project | POST | <http://localhost:8081> |
-| Update Project | PUT | <http://localhost:8081> |
-| Delete Project | DELETE | <http://localhost:8081> |
+| Project list | GET | <http://localhost:8000/api/projects> |
+| Single Project by Slug | GET | <http://localhost:8000/api/projects/second-test-project> |
+| Create Project | POST | <http://localhost:8000/api/projects/> |
+| Update Project | PUT | <http://localhost:8000/api/projects/second-test-project/update> |
+| Delete Project | DELETE | <http://localhost:8000/api/projects/second-test-project/delete> |
 
 ---
 
