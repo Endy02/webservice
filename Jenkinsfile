@@ -8,9 +8,10 @@ node {
         env.GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
         def workspace = pwd()
         sh '''if [ ! -d "venv" ]; then
-            virtualenv venv
+            python -m venv venv
         fi'''
-        sh ". venv/bin/activate"
+        sh "source venv/bin/activate"
+        sh "pip install --upgrade pip"
         sh "pip install -r requirements.txt"
         sh "python manage.py makemigrations"
         sh "python manage.py migrate"
